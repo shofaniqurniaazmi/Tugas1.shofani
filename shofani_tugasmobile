@@ -1,0 +1,133 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Map<String, String>> data = [
+      {
+        "nama": "Shofani",
+        "isi": "SHOFANII, KERJAKAN TUGASS",
+        "imageUrl":
+            "https://blog.adobe.com/en/publish/2017/06/06/media_1c9f7c6b3a4666de1839ccb58ba16c968123dbc3e.png?width=1200&format=pjpg&optimize=medium",
+      },
+      {
+        "nama": "Qurnia",
+        "isi": "tugass hari sabtu",
+        "imageUrl":
+            "https://d1tgyzt3mf06m9.cloudfront.net/v3-staging/2021/01/ae3786019ba234182e4ce4ca2f48c076.jpg",
+      },
+      {
+        "nama": "Azmi",
+        "isi": "dikerjakan di Flutlab",
+        "imageUrl":
+            "https://beritajatim.com/wp-content/uploads/2023/08/Transformasi-Luffy-yang-Fenomenal.jpg",
+      },
+      {
+        "nama": "Fani",
+        "isi": "dalam bentuk MOBILE",
+        "imageUrl":
+            "https://cdn.idntimes.com/content-images/duniaku/post/20191003/kelompok-bajak-laut-roger-c86a19cd9840bac428329ab75120ba0e.jpg",
+      },
+      {
+        "nama": "PPANI",
+        "isi": "YOKK SEMANGATT",
+        "imageUrl":
+            "https://assets-a1.kompasiana.com/items/album/2023/02/12/987071-63e8bd5b166b4208fe08a664.png",
+      },
+      {
+        "nama": "SHOPANN",
+        "isi": "MINGGU JAM 10",
+        "imageUrl":
+            "https://www.greenscene.co.id/wp-content/uploads/2021/07/One-Piece-7-1200x675.jpg",
+      },
+      {
+        "nama": "SQR",
+        "isi": "DEADLINEEEE",
+        "imageUrl":
+            "https://cdn-brilio-net.akamaized.net/webp/news/2015/06/05/5033/1200xauto-berapa-umur-doraemon-sekarang-penasaran-kan-berapa-umur-doraemon-150605i.jpg",
+      },
+      {
+        "nama": "YESSS",
+        "isi": "jangan lupa deadline",
+        "imageUrl":
+            "https://www.looper.com/img/gallery/cartoon-characters-who-are-openly-lgbtq/l-intro-1599156380.jpg",
+      },
+      {
+        "nama": "MR.JHON",
+        "isi": "Shofani haii",
+        "imageUrl":
+            "https://thumbor.prod.vidiocdn.com/slTzvWf3G2Ye6AjMykCotjrZpx8=/640x360/filters:quality(75)/vidio-web-prod-media/uploads/7091178/images/ets2_hq_ETS26f494105d662f428_640x360-00066.jpg",
+      },
+      {
+        "nama": "BITA",
+        "isi": "halo FANI",
+        "imageUrl":
+            "https://soclyfe.com/storage/images/2022-09-21/d3c9PSIsInZhbHVl.jpg",
+      },
+    ];
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.blueGrey,
+            title: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 18.0),
+                  child: Text(
+                    "New Aplikasi",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {},
+              ),
+            ],
+          ),
+          backgroundColor: Color(0xffcdcccb),
+          body: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (context, index) {
+              final item = data[index];
+              return Padding(
+                padding: const EdgeInsets.only(
+                  top: 20,
+                ),
+                child: ListTile(
+                  leading: ClipOval(
+                    child: Image.network(
+                      item["imageUrl"] ?? "",
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  title: Text(
+                    item["nama"] ?? "",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: Text(
+                    item["isi"] ?? "",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              );
+            },
+          )),
+    );
+  }
+}
